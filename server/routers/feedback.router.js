@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-//GET all data from database
+//GET all data from db
 router.get('/', (req, res) => {
     const sqlText = `SELECT * FROM feedback ORDER BY date;`;
     pool.query(sqlText)
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         })
 })
 
-//POST new feedback to database
+//POST new feedback to db
 router.post('/', (req, res) => {
     const feedback = req.body;
     const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ('$1, $2, $3, $4')`;
@@ -24,6 +24,21 @@ router.post('/', (req, res) => {
         .then((response) => {
             console.log('added feedback to the database', feedback);
             res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+})
+
+//DELETE feedback from db
+router.delete('/:id', (req, res) => {
+    let reqId = req.params.id;
+    console.log('delete request from id', reqId);
+    let sqlText = 'DELETE FROM feedback WHERE id=$1;';
+    pool.query(sqlText, [reqIq])
+        .then((result) => {
+            res.sendStatus(200);
         })
         .catch((error) => {
             console.log(`error making database query ${sqlText}`, error);
