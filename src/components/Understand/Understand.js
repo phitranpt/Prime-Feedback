@@ -9,12 +9,12 @@ class Understand extends Component {
 
     state = emptyUnderstandObject;
 
-    //sends user info into emptyFeelingObject and pushes to understand page
+    //sends user info into emptyFeelingObject and pushes to support page
     handleSubmit = (event) => {
         event.preventDefault();
         console.log('adding understand rating');
         this.props.dispatch({ type: 'ADD_UNDERSTAND', payload: this.state})
-        // this.props.history.push('/Support')
+        this.props.history.push('/2')
         this.clearInputs();
     }
 
