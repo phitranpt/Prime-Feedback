@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const emptyFeelingObject = {
+const emptyUnderstandObject = {
     understand: '',
 }
 
@@ -27,7 +27,7 @@ class Understand extends Component {
 
     //clear inputs
     clearInputs = () => {
-        this.setState(emptyFeelingObject);
+        this.setState(emptyUnderstandObject);
     }
 
     render() {
