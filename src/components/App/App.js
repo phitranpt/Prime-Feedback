@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import Admin from '../Admin/Admin';
+// import Admin from '../Admin/Admin';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br></br>
-        <Admin />
+        {/* <Admin /> */}
       </div>
     );
   }
