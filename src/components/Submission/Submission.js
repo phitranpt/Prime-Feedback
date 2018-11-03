@@ -13,7 +13,7 @@ class Submission extends Component {
             data: this.props.reduxState.feedbackReducer
         })
         .then((response) => {
-            console.log('feedback being sent to db', response);
+            console.log('feedback sent to db', response);
             this.props.history.push('/');
         })
         .catch((error) => {
