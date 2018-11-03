@@ -8,11 +8,18 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 //Create Reducers
+const feelingReducer = (state = [], action) => {
+    console.log('In feelingReducer');
+    if (action.type === 'ADD_FEELING') {
+        state = action.payload;
+    }
+    return state;
+}
 
 //Create Store
 const reduxStore = createStore(
     combineReducers({
-        
+        feelingReducer
     }),
     applyMiddleware(logger)
 )

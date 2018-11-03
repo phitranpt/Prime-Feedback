@@ -9,22 +9,23 @@ class Feeling extends Component {
 
     state = emptyFeelingObject;
 
-    //sends user info into emptyFeelingObject and pushes to admin page
+    //sends user info into emptyFeelingObject and pushes to understand page
     handleSubmit = (event) => {
         event.preventDefault();
         console.log('adding feeling rating');
         this.props.dispatch({ type: 'ADD_FEELING', payload: this.state})
-        this.props.history.push('/Admin')
+        // this.props.history.push('/Understand')
         this.clearInputs();
     }
 
     //takes answer from input and set in state
     handleChange = (event) => {
         this.setState({
-            [event.target.feeling]: event.target.value,
+            feeling: event.target.value,
         })      
     }
 
+    //clear inputs
     clearInputs = () => {
         this.setState(emptyFeelingObject);
     }
