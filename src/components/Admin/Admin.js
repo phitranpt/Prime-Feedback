@@ -3,6 +3,28 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 class Admin extends Component {
+
+  state = {
+    feedback: [],
+  }
+
+  //GET request from database
+  getFeedback = () => {
+    axios.get('/feedback')
+    .then((response) => {
+      console.log('feedback from GET request', response.data);
+      const feedback = response.data;
+      this.setState({feedback});
+    })
+    .catch((error) => {
+      alert('Unable to GET all feedback', error)
+    })
+  }
+
+  componentDidMount() {
+    this.getFeedback();
+  }
+
   render() {
     return (
       <section>
@@ -17,13 +39,15 @@ class Admin extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>4</td>
-              <td>4</td>
-              <td>5</td>
-              <td>Loved the demo!</td>
-              <td>Delete</td>
-            </tr>
+              {this.state.feedback.map(feedback => (
+                <tr key={feedback.id}>
+                <td>{feedback.feeling}</td>
+                <td>{feedback.understanding}</td>
+                <td>{feedback.support}</td>
+                <td>{feedback.comments}</td>
+                <td><button>Delete</button></td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </section>
