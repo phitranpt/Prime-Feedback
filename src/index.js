@@ -9,11 +9,10 @@ import logger from 'redux-logger';
 
 //Create Reducers
 
-
 //Create Store
 const reduxStore = createStore(
     combineReducers({
-
+        
     }),
     applyMiddleware(logger)
 )
