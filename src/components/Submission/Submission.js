@@ -4,20 +4,20 @@ import axios from 'axios';
 
 class Submission extends Component {
 
-    //send user back to beginning and POST feedback to db
     handleSubmit = () => {
+        console.log(this.props.reduxState.feedbackReducer);
+        
         axios({
             method: 'POST',
             url: '/feedback',
-            data: {}
+            data: this.props.reduxState.feedbackReducer
         })
         .then((response) => {
-            console.log('sending data to db', response);
-            this.props.dispatch({ type: 'SUBMISSION'})
+            console.log('feedback being sent to db', response);
             this.props.history.push('/');
         })
         .catch((error) => {
-            alert('error is posting to database', error)
+            alert('error in POST to db', error)
         })
     }
 
@@ -31,4 +31,6 @@ class Submission extends Component {
     }
 }
 
-export default connect()( Submission );
+const mapReduxStateToProps = ( reduxState ) => ({ reduxState });
+
+export default connect( mapReduxStateToProps )( Submission );

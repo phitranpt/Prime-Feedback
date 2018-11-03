@@ -18,16 +18,22 @@ router.get('/', (req, res) => {
 
 //POST new feedback to db
 router.post('/', (req, res) => {
+    console.log('in post');
     const feedback = req.body;
-    const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ('$1, $2, $3, $4')`;
-    pool.query(sqlText, [feedback.feedling, feedback.understanding, feedback.support, feedback.comments])
+    const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);`;
+    const feeling = feedback.feeling
+    const understand = feedback.understand
+    const support = feedback.support
+    const comment = feedback.comment
+    
+    pool.query( sqlText, [feeling, understand, support, comment] )
         .then((response) => {
             console.log('added feedback to the database', feedback);
             res.sendStatus(201);
         })
         .catch((error) => {
             console.log(`error making database query ${sqlText}`, error);
-            res.sendStatus(500);
+            res.sendStatus(error);
         })
 })
 

@@ -8,6 +8,20 @@ class Admin extends Component {
     feedback: [],
   }
 
+  deleteFeedback = (id) => {
+    axios.delete({
+      method: 'DELETE',
+      url: `/feedback/${id}`
+    })
+    .then((response) => {
+      console.log('deleting feedback', response);
+      this.getFeedback();
+    })
+    .catch((error) => {
+      alert('error deleting feedback', error);
+    })
+  }
+
   //GET request from database
   getFeedback = () => {
     axios.get('/feedback')
@@ -17,7 +31,7 @@ class Admin extends Component {
       this.setState({feedback});
     })
     .catch((error) => {
-      alert('Unable to GET all feedback', error)
+      alert('Unable to GET all feedback', error);
     })
   }
 
@@ -41,11 +55,11 @@ class Admin extends Component {
           <tbody>
               {this.state.feedback.map(feedback => (
                 <tr key={feedback.id}>
-                <td>{feedback.feeling}</td>
-                <td>{feedback.understanding}</td>
-                <td>{feedback.support}</td>
-                <td>{feedback.comments}</td>
-                <td><button>Delete</button></td>
+                  <td>{feedback.feeling}</td>
+                  <td>{feedback.understanding}</td>
+                  <td>{feedback.support}</td>
+                  <td>{feedback.comments}</td>
+                  <td><button onClick={this.deleteFeedback}>Delete</button></td>
                 </tr>
               ))}
           </tbody>
@@ -55,4 +69,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+export default connect()(Admin);
