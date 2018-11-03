@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 
 //GET all data from db
 router.get('/', (req, res) => {
-    const sqlText = `SELECT * FROM feedback ORDER BY date;`;
+    const sqlText = `SELECT * FROM feedback ORDER BY date DESC;`;
     pool.query(sqlText)
         .then((result) => {
             console.log('got stuff back from the database', result);
@@ -41,7 +41,7 @@ router.delete('/:id', (req, res) => {
     let reqId = req.params.id;
     console.log('delete request from id', reqId);
     let sqlText = 'DELETE FROM feedback WHERE id=$1;';
-    pool.query(sqlText, [reqIq])
+    pool.query(sqlText, [reqId])
         .then((result) => {
             res.sendStatus(200);
         })

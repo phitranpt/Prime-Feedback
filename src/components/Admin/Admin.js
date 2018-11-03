@@ -8,6 +8,7 @@ class Admin extends Component {
     feedback: [],
   }
 
+  //DELETE request from db
   deleteFeedback = (id) => {
     axios.delete({
       method: 'DELETE',
@@ -22,7 +23,7 @@ class Admin extends Component {
     })
   }
 
-  //GET request from database
+  //GET request from db
   getFeedback = () => {
     axios.get('/feedback')
     .then((response) => {
