@@ -13,7 +13,7 @@ class Understand extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log('adding understand rating');
-        this.props.dispatch({ type: 'ADD_UNDERSTAND', payload: this.state})
+        this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state})
         this.props.history.push('/2')
         this.clearInputs();
     }

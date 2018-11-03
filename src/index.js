@@ -7,35 +7,22 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+const emptyFeedback = {
+    feeling: '',
+    understanding: '',
+    support: '',
+    comments: '',
+}
+
 //Create Reducers
-const feelingReducer = (state = [], action) => {
-    console.log('In feelingReducer');
-    if (action.type === 'ADD_FEELING') {
-        state = action.payload;
-    }
-    return state;
-}
-
-const understandReducer = (state = [], action) => {
-    console.log('In understandReducer');
-    if (action.type === 'ADD_UNDERSTAND') {
-        state = action.payload;
-    }
-    return state;
-}
-
-const supportReducer = (state = [], action) => {
-    console.log('In supportReducer');
-    if (action.type === 'ADD_SUPPORT') {
-        state = action.payload;
-    }
-    return state;
-}
-
-const commentReducer = (state = [], action) => {
-    console.log('In commentReducer');
-    if (action.type === 'ADD_COMMENT') {
-        state = action.payload;
+const feedbackReducer = (state = [], action) => {
+    console.log('In feedbackReducer');
+    if (action.type === 'ADD_FEEDBACK') {
+        state = [...state, action.payload];
+    } 
+    else if (action.type === 'SUBMISSION') {
+        //reset state
+        state = emptyFeedback;
     }
     return state;
 }
@@ -43,10 +30,7 @@ const commentReducer = (state = [], action) => {
 //Create Store
 const reduxStore = createStore(
     combineReducers({
-        feelingReducer,
-        understandReducer,
-        supportReducer,
-        commentReducer
+        feedbackReducer
     }),
     applyMiddleware(logger)
 )

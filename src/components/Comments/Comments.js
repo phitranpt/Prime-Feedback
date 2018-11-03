@@ -13,7 +13,7 @@ class Comments extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log('adding comments');
-        this.props.dispatch({ type: 'ADD_COMMENT', payload: this.state})
+        this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state})
         this.props.history.push('/4')
         this.clearInputs();
     }
