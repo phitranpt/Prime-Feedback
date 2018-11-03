@@ -32,12 +32,21 @@ const supportReducer = (state = [], action) => {
     return state;
 }
 
+const commentReducer = (state = [], action) => {
+    console.log('In commentReducer');
+    if (action.type === 'ADD_COMMENT') {
+        state = action.payload;
+    }
+    return state;
+}
+
 //Create Store
 const reduxStore = createStore(
     combineReducers({
         feelingReducer,
         understandReducer,
-        supportReducer
+        supportReducer,
+        commentReducer
     }),
     applyMiddleware(logger)
 )
