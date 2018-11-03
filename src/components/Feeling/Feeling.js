@@ -14,7 +14,7 @@ class Feeling extends Component {
         event.preventDefault();
         console.log('adding feeling rating');
         this.props.dispatch({ type: 'ADD_FEELING', payload: this.state})
-        this.props.history.push('/Understand')
+        this.props.history.push('/1')
         this.clearInputs();
     }
 
@@ -41,4 +41,4 @@ class Feeling extends Component {
     }
 }
 
-export default connect()(Feeling);
+export default connect()( Feeling );

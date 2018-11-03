@@ -41,4 +41,4 @@ class Understand extends Component {
     }
 }
 
-export default connect()(Understand);
+export default connect()( Understand );
