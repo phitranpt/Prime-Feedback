@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 class Admin extends Component {
 
@@ -59,7 +60,7 @@ class Admin extends Component {
                   <td>{feedback.understanding}</td>
                   <td>{feedback.support}</td>
                   <td>{feedback.comments}</td>
-                  <td><button onClick={() => { this.deleteFeedback(feedback.id) }}>Delete</button></td>
+                  <td><button varient="raised" onClick={() => { this.deleteFeedback(feedback.id) }}>Delete</button></td>
                 </tr>
               ))}
           </tbody>
