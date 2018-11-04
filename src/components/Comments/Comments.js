@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../../../src/bootstrap.min.css';
+import './Comments.css';
 
 const emptyCommentObject = {
     comment: '',
@@ -34,8 +36,8 @@ class Comments extends Component {
         return (
         <form onSubmit={this.handleSubmit}>
             <h2>Any comments you want to leave?</h2>
-            <input onChange={this.handleChange} placeholder="Add Comments" value={this.state.comment} name="comment" />
-            <input type="submit" value="Next" />
+            <textarea className="form-control" onChange={this.handleChange} placeholder="Add Comments" value={this.state.comment} name="comment" />
+            <input type="submit" value="Next" className="next btn btn-secondary"/>
         </form>
         );
     }
