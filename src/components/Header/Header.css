@@ -3,16 +3,32 @@
   }
   
   .App-header {
-    background-color: #033076;
-    min-height: 70px;
+    background-color: #07aa9e;
+    min-height: 80px;
     padding: 20px;
     color: white;
+    width: 70%;
+    margin: auto;
   }
   
   .App-title {
-    font-size: 1.5em;
+    font-size: 50px;
   }
   
   .App-intro {
     font-size: large;
+  }
+
+  .App-logo {
+    animation: App-logo-spin infinite 10s linear;
+    height: 8vmin;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }

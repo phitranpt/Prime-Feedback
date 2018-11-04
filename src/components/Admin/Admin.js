@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import './bootstrap.min.css'
+import './Admin.css'
 
 class Admin extends Component {
 
@@ -42,8 +44,8 @@ class Admin extends Component {
 
   render() {
     return (
-      <section>
-        <table>
+      <div>
+        <table className="table table-hover table-bordered">
           <thead>
             <tr>
               <th>Feeling</th>
@@ -60,12 +62,12 @@ class Admin extends Component {
                   <td>{feedback.understanding}</td>
                   <td>{feedback.support}</td>
                   <td>{feedback.comments}</td>
-                  <td><button varient="raised" onClick={() => { this.deleteFeedback(feedback.id) }}>Delete</button></td>
+                  <td><Button varient="fab" onClick={() => { this.deleteFeedback(feedback.id) }}>Delete</Button></td>
                 </tr>
               ))}
           </tbody>
         </table>
-      </section>
+      </div>
     );
   }
 }
