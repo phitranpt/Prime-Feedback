@@ -12,7 +12,7 @@ const feedbackReducer = (state = [], action) => {
     console.log('In feedbackReducer');
     if (action.type === 'ADD_FEEDBACK') {
         state = [...state, action.payload];
-    } 
+    }
     return state;
 }
 
