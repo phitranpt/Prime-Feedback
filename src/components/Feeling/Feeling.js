@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../../../src/feedback.css';
+import '../../../src/bootstrap.min.css';
 
 const emptyFeelingObject = {
     feeling: '',
@@ -34,8 +36,12 @@ class Feeling extends Component {
         return (
         <form onSubmit={this.handleSubmit}>
             <h2>How are you feeling today?</h2>
-            <input onChange={this.handleChange} placeholder="Rate from 1-5" value={this.state.feeling} name="feeling" />
-            <input type="submit" value="Next" />
+            <input onChange={this.handleChange} value="1" name="feeling" type="radio" className="rating"/>1
+            <input onChange={this.handleChange} value="2" name="feeling" type="radio" className="rating"/>2
+            <input onChange={this.handleChange} value="3" name="feeling" type="radio" className="rating"/>3
+            <input onChange={this.handleChange} value="4" name="feeling" type="radio" className="rating"/>4
+            <input onChange={this.handleChange} value="5" name="feeling" type="radio" className="rating"/>5
+            <input type="submit" value="Next" className="next btn btn-secondary"/>
         </form>
         );
     }

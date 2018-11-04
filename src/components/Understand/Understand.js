@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../../../src/feedback.css';
+import '../../../src/bootstrap.min.css';
 
 const emptyUnderstandObject = {
     understand: '',
@@ -34,8 +36,12 @@ class Understand extends Component {
         return (
         <form onSubmit={this.handleSubmit}>
             <h2>How well are you understanding the content?</h2>
-            <input onChange={this.handleChange} placeholder="Rate from 1-5" value={this.state.understand} name="understand" />
-            <input type="submit" value="Next" />
+            <input onChange={this.handleChange} value="1" name="understand" type="radio" className="rating"/>1
+            <input onChange={this.handleChange} value="1" name="understand" type="radio" className="rating"/>2
+            <input onChange={this.handleChange} value="1" name="understand" type="radio" className="rating"/>3
+            <input onChange={this.handleChange} value="1" name="understand" type="radio" className="rating"/>4
+            <input onChange={this.handleChange} value="1" name="understand" type="radio" className="rating"/>5
+            <input type="submit" value="Next" className="next btn btn-secondary"/>
         </form>
         );
     }

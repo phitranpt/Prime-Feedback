@@ -34,7 +34,7 @@ class Comments extends Component {
         return (
         <form onSubmit={this.handleSubmit}>
             <h2>Any comments you want to leave?</h2>
-            <input onChange={this.handleChange} placeholder="Add Comments" value={this.state.support} name="comment" />
+            <input onChange={this.handleChange} placeholder="Add Comments" value={this.state.comment} name="comment" />
             <input type="submit" value="Next" />
         </form>
         );

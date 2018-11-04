@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import '../../../src/bootstrap.min.css';
 
 class Submission extends Component {
 
@@ -24,8 +25,8 @@ class Submission extends Component {
     render() {
         return (
         <section>
-            <h2>Thank You!</h2>
-            <button onClick={this.handleSubmit}>Leave New Feedback</button>
+            <h2>Thank You!</h2><br></br>
+            <button className="btn btn-secondary" onClick={this.handleSubmit}>Leave New Feedback</button>
         </section>       
         );
     }

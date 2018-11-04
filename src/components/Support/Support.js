@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../../../src/feedback.css';
+import '../../../src/bootstrap.min.css';
 
 const emptySupportObject = {
     support: '',
@@ -34,8 +36,12 @@ class Support extends Component {
         return (
         <form onSubmit={this.handleSubmit}>
             <h2>How well are you being suported?</h2>
-            <input onChange={this.handleChange} placeholder="Rate from 1-5" value={this.state.support} name="support" />
-            <input type="submit" value="Next" />
+            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>1
+            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>2
+            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>3
+            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>4
+            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>5
+            <input type="submit" value="Next" className="next btn btn-secondary"/>
         </form>
         );
     }

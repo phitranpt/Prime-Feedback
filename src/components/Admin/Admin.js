@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
-import './bootstrap.min.css'
+import '../../../src/bootstrap.min.css'
 import './Admin.css'
 
 class Admin extends Component {
