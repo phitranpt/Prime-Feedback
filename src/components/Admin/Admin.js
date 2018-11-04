@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import '../../../src/bootstrap.min.css'
-import './Admin.css'
+import './Admin.css';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 
 class Admin extends Component {
 
@@ -42,6 +44,24 @@ class Admin extends Component {
     this.getFeedback();
   }
 
+  //display confirmation of delete
+  submit = () => {
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => alert('Click Yes')
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    })
+  };
+
   render() {
     return (
       <div>
@@ -62,7 +82,8 @@ class Admin extends Component {
                   <td>{feedback.understanding}</td>
                   <td>{feedback.support}</td>
                   <td>{feedback.comments}</td>
-                  <td><Button varient="fab" onClick={() => { this.deleteFeedback(feedback.id) }}>Delete</Button></td>
+                  <td><Button varient="raised" onClick={() => { this.deleteFeedback( feedback.id ) } }>Delete</Button>
+                  </td>
                 </tr>
               ))}
           </tbody>
