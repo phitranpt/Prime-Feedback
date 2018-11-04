@@ -19,14 +19,9 @@ This project collects feedbacks from student in four different views.  Each will
 
 ### WHAT IT LOOKS LIKE!
 
-The parts:
-- How are you feeling today?
 ![feeling](wireframes/page-one.png)
-- How well are you understanding the content?
 ![understanding](wireframes/page-two.png)
-- How well are you being supported?
 ![support](wireframes/page-three.png)
-- Any comments you want to leave?
 ![comments](wireframes/page-four.png)
 
 ### THANKS TO ALL!
