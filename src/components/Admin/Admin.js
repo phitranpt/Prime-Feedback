@@ -10,16 +10,15 @@ class Admin extends Component {
 
   //DELETE request from db
   deleteFeedback = (id) => {
-    axios.delete({
+    axios({
       method: 'DELETE',
       url: `/feedback/${id}`
     })
-    .then((response) => {
-      console.log('deleting feedback', response);
+    .then( (response) => {
       this.getFeedback();
     })
-    .catch((error) => {
-      alert('error deleting feedback', error);
+    .catch( (error) => {
+      alert('error in delete request', error);
     })
   }
 
@@ -60,7 +59,7 @@ class Admin extends Component {
                   <td>{feedback.understanding}</td>
                   <td>{feedback.support}</td>
                   <td>{feedback.comments}</td>
-                  <td><button onClick={this.deleteFeedback}>Delete</button></td>
+                  <td><button onClick={() => { this.deleteFeedback(feedback.id) }}>Delete</button></td>
                 </tr>
               ))}
           </tbody>
@@ -70,4 +69,6 @@ class Admin extends Component {
   }
 }
 
-export default connect()(Admin);
+const mapReduxStateToProps = ( reduxState ) => ({ reduxState });
+
+export default connect( mapReduxStateToProps ) (Admin );

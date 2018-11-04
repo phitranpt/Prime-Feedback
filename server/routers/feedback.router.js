@@ -39,15 +39,15 @@ router.post('/', (req, res) => {
 //DELETE feedback from db
 router.delete('/:id', (req, res) => {
     let reqId = req.params.id;
-    console.log('delete request from id', reqId);
+    console.log('Delete request for id', reqId);
     let sqlText = 'DELETE FROM feedback WHERE id=$1;';
     pool.query(sqlText, [reqId])
         .then((result) => {
             res.sendStatus(200);
         })
         .catch((error) => {
-            console.log(`error making database query ${sqlText}`, error);
-            res.sendStatus(500);
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500); 
         })
 })
 
