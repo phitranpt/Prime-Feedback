@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 
 //GET all data from db
 router.get('/', (req, res) => {
-    const sqlText = `SELECT * FROM feedback ORDER BY date DESC;`;
+    const sqlText = `SELECT * FROM feedback ORDER BY id DESC;`;
     pool.query(sqlText)
         .then((result) => {
             console.log('got stuff back from the database', result);
