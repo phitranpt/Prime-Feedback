@@ -35,7 +35,7 @@ class Support extends Component {
     render() {
         return (
         <form onSubmit={this.handleSubmit}>
-            <h2>How well are you being suported?</h2>
+            <h2>How well are you being supported?</h2>
             <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>1
             <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>2
             <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>3
