@@ -36,11 +36,13 @@ class Support extends Component {
         return (
         <form onSubmit={this.handleSubmit}>
             <h2>How well are you being supported?</h2>
-            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>1
-            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>2
-            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>3
-            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>4
-            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>5
+            <label id="label1">Nobody is helping me.</label>
+            <input onChange={this.handleChange} value="1" name="support" type="radio" className="rating"/>
+            <input onChange={this.handleChange} value="2" name="support" type="radio" className="rating"/>
+            <input onChange={this.handleChange} value="3" name="support" type="radio" className="rating"/>
+            <input onChange={this.handleChange} value="4" name="support" type="radio" className="rating"/>
+            <input onChange={this.handleChange} value="5" name="support" type="radio" className="rating"/>
+            <label id="label2">I love Prime Staff</label><br></br>
             <input type="submit" value="Next" className="next btn btn-secondary"/>
         </form>
         );

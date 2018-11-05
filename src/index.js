@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
+
+//Redux
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const emptyState = {
-    feeling: '',
-    understand: '',
-    support: '',
+    feeling: 0,
+    understand: 0,
+    support: 0,
     comment: ''
 }
 
@@ -39,5 +41,6 @@ const reduxStore = createStore(
     applyMiddleware(logger)
 )
 
+//Wrap in Provider
 ReactDOM.render(<Provider store={ reduxStore }><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

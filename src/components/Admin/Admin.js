@@ -29,7 +29,7 @@ class Admin extends Component {
   }
 
   //GET request from db
-  getFeedback = () => {
+  componentDidMount = () => {
     axios.get('/feedback')
     .then((response) => {
       console.log('feedback from GET request', response.data);
@@ -39,10 +39,6 @@ class Admin extends Component {
     .catch((error) => {
       alert('Unable to GET all feedback', error);
     })
-  }
-
-  componentDidMount() {
-    this.getFeedback();
   }
 
   // //display confirmation of delete
