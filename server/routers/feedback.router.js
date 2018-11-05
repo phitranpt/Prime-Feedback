@@ -21,10 +21,10 @@ router.post('/', (req, res) => {
     console.log('in post');
     const feedback = req.body;
     const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);`;
-    const feeling = feedback[0].feeling
-    const understand = feedback[1].understand
-    const support = feedback[2].support
-    const comment = feedback[3].comment
+    const feeling = feedback.feeling
+    const understand = feedback.understand
+    const support = feedback.support
+    const comment = feedback.comment
     pool.query( sqlText, [feeling, understand, support, comment] )
         .then((response) => {
             console.log('added feedback to the database', feedback);

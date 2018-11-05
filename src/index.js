@@ -15,12 +15,17 @@ const emptyState = {
 }
 
 //Create Reducers
-const feedbackReducer = (state = [], action) => {
+const feedbackReducer = (state = emptyState, action) => {
     console.log('In feedbackReducer');
-    if (action.type === 'ADD_FEEDBACK') {
-        state = [...state, action.payload];
-    }
-    else if (action.type === 'RESET_STATE') {
+    if (action.type === 'ADD_FEELING') {
+        state = {...state, ...action.payload};
+    } else if (action.type === 'ADD_UNDERSTAND') {
+        state = {...state, ...action.payload};
+    } else if (action.type === 'ADD_SUPPORT') {
+        state = {...state, ...action.payload};
+    } else if (action.type === 'ADD_COMMENT') {
+        state = {...state, ...action.payload};
+    } else if (action.type === 'RESET_STATE') {
         state = emptyState;
     }
     return state;

@@ -15,7 +15,7 @@ class Support extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log('adding support rating');
-        this.props.dispatch({ type: 'ADD_FEEDBACK', payload: this.state})
+        this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state})
         this.props.history.push('/3')
         this.clearInputs();
     }
