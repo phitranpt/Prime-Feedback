@@ -49,15 +49,14 @@ class Admin extends Component {
   // submit = () => {
   //   confirmAlert({
   //     title: 'Confirm to submit',
-  //     message: 'Are you sure to do this.',
+  //     message: 'Are you sure you want to delete?',
   //     buttons: [
   //       {
   //         label: 'Yes',
-  //         onClick: () => this.deleteFeedback(feedback.id),
+  //         onClick: () => this.deleteFeedback(this.props.feedback.id),
   //       },
   //       {
   //         label: 'No',
-  //         onClick: () => alert('Click No')
   //       }
   //     ]
   //   })
@@ -83,7 +82,10 @@ class Admin extends Component {
                   <td>{feedback.understanding}</td>
                   <td>{feedback.support}</td>
                   <td>{feedback.comments}</td>
-                  <td><Button varient="raised" onClick={() => { this.deleteFeedback(feedback.id)} }>Delete</Button>
+                  <td><Button varient="raised" onClick={() => 
+                    {if (window.confirm('Are you sure you want to delete?'))
+                    this.deleteFeedback(feedback.id) }}
+                    >Delete</Button>
                   </td>
                 </tr>
               ))}
