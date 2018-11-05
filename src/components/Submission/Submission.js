@@ -5,6 +5,7 @@ import '../../../src/bootstrap.min.css';
 
 class Submission extends Component {
 
+    //sends user inputs to db, reset state, go back to feeling page
     handleSubmit = () => {
         console.log(this.props.reduxState.feedbackReducer);
         
@@ -16,6 +17,7 @@ class Submission extends Component {
         .then((response) => {
             console.log('feedback sent to db', response);
             this.props.history.push('/');
+            this.props.dispatch( {type: 'RESET_STATE'} );
         })
         .catch((error) => {
             alert('error in POST to db', error)

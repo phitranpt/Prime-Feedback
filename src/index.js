@@ -7,11 +7,21 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+const emptyState = {
+    feeling: '',
+    understand: '',
+    support: '',
+    comment: ''
+}
+
 //Create Reducers
 const feedbackReducer = (state = [], action) => {
     console.log('In feedbackReducer');
     if (action.type === 'ADD_FEEDBACK') {
         state = [...state, action.payload];
+    }
+    else if (action.type === 'RESET_STATE') {
+        state = emptyState;
     }
     return state;
 }
