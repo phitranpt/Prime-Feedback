@@ -20,7 +20,7 @@ class App extends Component {
           <Route path ="/2" component={Support} />
           <Route path ="/3" component={Comments} />
           <Route path ="/4" component={Submission} />
-          <Route path ="/5" component={Admin} />
+          <Route path ="/Admin" component={Admin} />
         </div>
       </Router>
     );
